@@ -12,6 +12,7 @@
 // @include https://www.science.org/*
 // @include https://dom-pubs.onlinelibrary.wiley.com/doi/*
 // @include https://link.springer.com/*
+// @include https://www.biologicalpsychiatryjournal.com/*
 // ==/UserScript==
 
 function sciHubLink(doi) {
@@ -189,6 +190,20 @@ function springerLinkGeneral(doi) {
   `;
 }
 
+function biologicalpsychiatry() {
+  const doi = document.querySelector(".article-header__doi__value").innerText.split('doi.org/')[1];
+  const links = document.querySelector(".article-header__middle");
+  links.innerHTML +=`
+  <div>
+  <p>SciHub full text link: </p>
+  <a href="${sciHubLink(doi)}" target="_blank" title="See full text on SciHub" class="article-tools__ctrl">
+  <p class="inline-it" style="margin-top: 0; margin-bottom: 0;">
+    <img src="https://sci-hub.se/misc/img/logo_en.png" alt="full text provider logo" height=30;>
+  </p>
+  </a>
+</div>`;
+}
+
 function addSciHubLink() {
   const url = document.location.href;
   if (url.includes("pubmed.ncbi.nlm.nih.gov")) {
@@ -207,6 +222,8 @@ function addSciHubLink() {
     wiley();
   } else if (url.includes("link.springer.com")) {
     springerLink();
+  } else if (url.includes("biologicalpsychiatryjournal.com")) {
+    biologicalpsychiatry();
   }
 }
 
