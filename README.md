@@ -10,7 +10,7 @@ Please contribute new websites!
 
 * Chrome/Chromium: see instructions below.
 * Firefox: https://addons.mozilla.org/en-US/firefox/addon/sci-hub-injector/
-* Brave: should work when you replace `chrome://extenions` with `brave://extenions`. Not tested.
+* Brave: should work when you replace `chrome://extensions` with `brave://extensions`. Not tested.
 
 ## Supported sites
 
